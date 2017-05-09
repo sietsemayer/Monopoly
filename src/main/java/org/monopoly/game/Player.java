@@ -22,7 +22,7 @@ public class Player {
         this.otherPlayers = null;
         this.locations = new ArrayList<>();
         this.board = board;
-        this.money = 1500;
+        this.money = 150000;
         this.doubles = 0;
         this.currentLocation = 0;
         this.numRailroad = 0;
@@ -30,6 +30,7 @@ public class Player {
         this.inJail = false;
         this.lastRoleWasDouble = false;
         this.cardHolder = false;
+        this.dice = new Dice();
     }
     
     public Player(String name, Board board) {
@@ -38,7 +39,7 @@ public class Player {
         this.locations = new ArrayList<>();
         this.board = board;
         this.name = name;
-        this.money = 1500;
+        this.money = 150000;
         this.doubles = 0;
         this.currentLocation = 0;
         this.numRailroad = 0;
@@ -46,6 +47,7 @@ public class Player {
         this.inJail = false;
         this.lastRoleWasDouble = false;
         this.cardHolder = false;
+        this.dice = new Dice();
     }
 
     public Player[] getOtherPlayers() {
@@ -157,7 +159,16 @@ public class Player {
         return "Player [name=" + name + "]";
     }
     
-    
+    public int rollDice() {
+        int roll1 = dice.roll();
+        int roll2 = dice.roll();
+
+        if (roll1 == roll2) {
+            this.doubles++;
+            lastRoleWasDouble = true;
+        }
+        return roll1 + roll2;
+    }
     
     
 
