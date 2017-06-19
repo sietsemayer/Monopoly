@@ -2,11 +2,13 @@ package org.monopoly.game;
 
  
 
+ 
 import org.apache.log4j.Logger;
 import org.monopoly.card.CommunityChest;
 import org.monopoly.game.queue.commonQueue;
 
 public class Monopoly {
+    private static Logger LOG = Logger.getLogger(Monopoly.class);
     
     public Board board;
     private commonQueue<Player> player;
@@ -15,6 +17,7 @@ public class Monopoly {
     
     
     public Monopoly(int numberOfPlayers) {
+        LOG.info("Starting the game with "+ numberOfPlayers + "number of players");
         board = new Board();
         player = new commonQueue<>();
         
@@ -55,6 +58,7 @@ public class Monopoly {
     }
 
     public static void main(String[] args) {
+        
         new Monopoly(4);
     }
    
