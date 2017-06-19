@@ -7,11 +7,11 @@ public class commonQueue<T> implements IQueue<T>{
     private ArrayList<T> playersQueue;
     
     public commonQueue() {
-        playersQueue = new ArrayList<T>();
+        playersQueue = new ArrayList<>();
     }
 
     @Override
-    public void enque(T x) {
+    public void enqueue(T x) {
         playersQueue.add(0, x);
     }
 

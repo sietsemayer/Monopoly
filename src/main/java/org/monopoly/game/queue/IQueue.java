@@ -2,7 +2,7 @@ package org.monopoly.game.queue;
 
 public interface IQueue<T> {
     
-    public void enque (T x);
+    public void enqueue (T x);
     
     public T dequeue();
     

@@ -5,15 +5,15 @@ import org.monopoly.game.Board;
 import org.monopoly.game.Player;
 
 public class Chance4 implements Card {
-    
+
     private String description;
-    
+
     public Chance4() {
         description = "Boete voor te snel rijden. Betaal € 1.500";
     }
 
     @Override
-    public String getDescription() {        
+    public String getDescription() {
         return description;
     }
 

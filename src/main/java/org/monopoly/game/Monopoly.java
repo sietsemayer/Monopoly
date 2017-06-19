@@ -19,12 +19,12 @@ public class Monopoly {
         player = new commonQueue<>();
         
         for (int i = 1; i <= numberOfPlayers; i++) {
-            player.enque(new Player("Player "+i, board));
+            player.enqueue(new Player("Player "+i, board));
             
         }
         
         for(int i = 1; i <= numberOfPlayers; i++) {
-            player.enque(new Player("PLLayer "+i, board));
+            player.enqueue(new Player("PLLayer "+i, board));
         }
         
         for(int i = 0; i < player.getSize(); i++ ){
@@ -35,11 +35,11 @@ public class Monopoly {
             
             for(int k = 0; k < player.getSize(); k++){
                 otherPLayers[k] = player.dequeue();
-                player.enque(otherPLayers[k]);
+                player.enqueue(otherPLayers[k]);
             }
             
             temp.setOtherPlayers(otherPLayers);
-            player.enque(temp);          
+            player.enqueue(temp);          
         }
         
         chance = new Chance();
