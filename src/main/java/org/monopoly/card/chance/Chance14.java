@@ -1,20 +1,20 @@
-package org.monopoly.card.communityChestCards;
+package org.monopoly.card.chance;
 
 import org.monopoly.card.Card;
 import org.monopoly.game.Board;
 import org.monopoly.game.Player;
 
-public class CommunityChest15 implements Card {
+public class Chance14 implements Card {
     
     private String description;
     
-    public CommunityChest15() {
-        description = "Ga verder naar START";
+    public Chance14() {
+        description = "Ga verder naar start";
     }
 
     @Override
-    public String getDescription() {
-       return description;
+    public String getDescription() {        
+        return description;
     }
 
     @Override

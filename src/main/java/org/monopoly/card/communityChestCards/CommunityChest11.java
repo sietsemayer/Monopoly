@@ -1,4 +1,4 @@
-package org.monopoly.game.communityChestCards;
+package org.monopoly.card.communityChestCards;
 
 import org.monopoly.card.Card;
 import org.monopoly.game.Board;
