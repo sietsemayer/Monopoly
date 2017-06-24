@@ -17,7 +17,8 @@ public class Monopoly {
     
     
     public Monopoly(int numberOfPlayers) {
-        LOG.info("Starting the game with "+ numberOfPlayers + "number of players");
+
+        LOG.info(numberOfPlayers + "number of players");
         board = new Board();
         player = new commonQueue<>();
         
@@ -58,7 +59,7 @@ public class Monopoly {
     }
 
     public static void main(String[] args) {
-        
+        LOG.info("Starting the game!");
         new Monopoly(4);
     }
    

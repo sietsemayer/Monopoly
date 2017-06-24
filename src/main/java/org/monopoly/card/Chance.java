@@ -1,6 +1,8 @@
 package org.monopoly.card;
 
 import java.util.ArrayList;
+
+import org.apache.log4j.Logger;
 import org.monopoly.card.chance.Chance1;
 import org.monopoly.card.chance.Chance10;
 import org.monopoly.card.chance.Chance11;
@@ -20,7 +22,7 @@ import org.monopoly.card.chance.Chance9;
 import org.monopoly.game.queue.commonQueue;
 
 public class Chance {
-
+    private static Logger LOG = Logger.getLogger("Chance");
     private commonQueue<Card> chanceCardDeck;
 
     public Chance() {
