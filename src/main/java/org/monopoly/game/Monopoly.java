@@ -3,6 +3,9 @@ package org.monopoly.game;
  
 
  
+import java.util.ArrayList;
+import java.util.Collection;
+
 import org.apache.log4j.Logger;
 import org.monopoly.card.CommunityChest;
 import org.monopoly.game.queue.commonQueue;
@@ -14,6 +17,7 @@ public class Monopoly {
     private commonQueue<Player> player;
     private Chance chance;
     private CommunityChest communityChest;
+    private Collection <Integer> locationOfPlayers;
     
     
     public Monopoly(int numberOfPlayers) {
@@ -52,7 +56,10 @@ public class Monopoly {
         communityChest.shuffle();
         
         
-        
+        locationOfPlayers = new ArrayList<>();
+        for(int i = 0; i < player.getSize(); i++){
+            locationOfPlayers.add(0);
+        }
       
         
 
