@@ -14,17 +14,22 @@ public class Monopoly {
     private static Logger LOG = Logger.getLogger(Monopoly.class);
     
     public Board board;
+    public Game game;
     private commonQueue<Player> player;
     private Chance chance;
     private CommunityChest communityChest;
     private Collection <Integer> locationOfPlayers;
-    
+
+    private final int NUMBEROFTURNS;
+    private int numberOfPlayers;
+
     
     public Monopoly(int numberOfPlayers) {
 
         LOG.info(numberOfPlayers + "number of players");
         board = new Board();
         player = new commonQueue<>();
+        game = new Game();
         
         for (int i = 1; i <= numberOfPlayers; i++) {
             player.enqueue(new Player("Player "+i, board));
@@ -59,10 +64,22 @@ public class Monopoly {
         locationOfPlayers = new ArrayList<>();
         for(int i = 0; i < player.getSize(); i++){
             locationOfPlayers.add(0);
-        }
-      
+        }             
         
+        this.NUMBEROFTURNS = 9999999;      
+        this.numberOfPlayers = numberOfPlayers;
 
+    }
+    
+    public synchronized void start(){
+        game.update(locationOfPlayers);
+    }
+    
+    public synchronized void stop(){
+        Collection<Player> temp = new ArrayList<>();
+        temp.add(player.dequeue());
+        int playersListsize = player.getSize(); 
+       
     }
 
     public static void main(String[] args) {
