@@ -7,6 +7,7 @@ public class GoToJail extends Location {
     }
     
     public void goToJail(Player player){
+        player.setCurrentLocation(1);
         player.setCurrentLocation(10);
         player.setInJail(true);
         

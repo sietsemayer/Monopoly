@@ -3,7 +3,7 @@ package org.monopoly.game;
 
 public class Property extends Location {
 
-    private Player propertyOwner;
+    private int propertyOwner;
     private int propertyPrice;
     private int mortgageValue;    
     private int rent;
@@ -17,15 +17,15 @@ public class Property extends Location {
         this.rent = rent;
         this.mortgage = false;
         this.monopoly = false;
-        this.propertyOwner = null;
+        this.propertyOwner = 0;
     }
     
-    public Player getPropertyOwner(){
+    public int getPropertyOwner(){
         return this.propertyOwner;
     }
     
-    public void setPropertyOwner(Player propertyOwner){
-        this.propertyOwner = propertyOwner;
+    public void setPropertyOwner(Player player){
+        this.propertyOwner = player.getPlayerNumber();
     }
 
     public int getPropertyPrice() {
@@ -68,12 +68,14 @@ public class Property extends Location {
         this.monopoly = monopoly;
     }
     
-    public String getOwnersName(){
-        if(propertyOwner.equals(null)){
-            return "none";
-        } else {
-            return propertyOwner.getName();
-        }
-    }
+    //FIXME SMA : FIX THIS!!
+    
+//    public String getOwnersName(){
+//        if(propertyOwner.equals(null)){
+//            return "none";
+//        } else {
+//            return propertyOwner.getName();
+//        }
+//    }
     
 }

@@ -18,8 +18,8 @@ public class Chance16 implements Card {
     }
 
     @Override
-    public void Act(Player player, Board board) {
-        player.setCurrentLocation(player.getCurrentLocation() - 3);
+    public void Act(Player player, Board board) {        
+        player.setCurrentLocation(player.getCurrentLocation() -3);
     }
 
 }

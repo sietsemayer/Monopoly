@@ -1,6 +1,7 @@
 package org.monopoly.card;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import org.apache.log4j.Logger;
 import org.monopoly.card.chance.Chance1;
@@ -19,45 +20,35 @@ import org.monopoly.card.chance.Chance6;
 import org.monopoly.card.chance.Chance7;
 import org.monopoly.card.chance.Chance8;
 import org.monopoly.card.chance.Chance9;
-import org.monopoly.game.queue.commonQueue;
 
 public class Chance {
-    private static Logger LOG = Logger.getLogger("Chance");
-    private commonQueue<Card> chanceCardDeck;
+
+    private static Logger LOG = Logger.getLogger("chanceCardDeck");
+    private List<Card> chanceCardDeck;
 
     public Chance() {
-        chanceCardDeck = new commonQueue<>();
+        chanceCardDeck = new ArrayList<>();
 
-        chanceCardDeck.enqueue(new Chance1());
-        chanceCardDeck.enqueue(new Chance2());
-        chanceCardDeck.enqueue(new Chance3());
-        chanceCardDeck.enqueue(new Chance4());
-        chanceCardDeck.enqueue(new Chance5());
-        chanceCardDeck.enqueue(new Chance6());
-        chanceCardDeck.enqueue(new Chance7());
-        chanceCardDeck.enqueue(new Chance8());
-        chanceCardDeck.enqueue(new Chance9());
-        chanceCardDeck.enqueue(new Chance10());
-        chanceCardDeck.enqueue(new Chance11());
-        chanceCardDeck.enqueue(new Chance12());
-        chanceCardDeck.enqueue(new Chance13());
-        chanceCardDeck.enqueue(new Chance14());
-        chanceCardDeck.enqueue(new Chance15());
-        chanceCardDeck.enqueue(new Chance16());
+        chanceCardDeck.add(new Chance1());
+        chanceCardDeck.add(new Chance2());
+        chanceCardDeck.add(new Chance3());
+        chanceCardDeck.add(new Chance4());
+        chanceCardDeck.add(new Chance5());
+        chanceCardDeck.add(new Chance6());
+        chanceCardDeck.add(new Chance7());
+        chanceCardDeck.add(new Chance8());
+        chanceCardDeck.add(new Chance9());
+        chanceCardDeck.add(new Chance10());
+        chanceCardDeck.add(new Chance11());
+        chanceCardDeck.add(new Chance12());
+        chanceCardDeck.add(new Chance13());
+        chanceCardDeck.add(new Chance14());
+        chanceCardDeck.add(new Chance15());
+        chanceCardDeck.add(new Chance16());
+        LOG.info("Added  " + chanceCardDeck.size() + " to the chance card Deck");
     }
 
-    public void shuffle() {
-        ArrayList<Card> shuffler = new ArrayList<Card>();
-        while (chanceCardDeck.getSize() != 0) {
-            shuffler.add(chanceCardDeck.dequeue());
-        }
-
-        while (!shuffler.isEmpty()) {
-            int n = shuffler.size();
-            int randIndex = (int)(n * Math.random());
-            chanceCardDeck.enqueue(shuffler.remove(randIndex));
-        }
-
+    public List<Card> getChanceCardDeckList() {
+        return chanceCardDeck;
     }
-
 }

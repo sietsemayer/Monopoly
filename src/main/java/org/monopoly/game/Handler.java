@@ -16,8 +16,9 @@ public class Handler {
     
     public void action(){
         if(location instanceof Property){
-            Player player = ((Property) location).getPropertyOwner();            
-            System.out.println(location.getName()+" "+"price: "+price+"\nRent "+rent+"\nOwner "+player);
+            //FIXME SMA : FIX ME!!
+//            Player player = ((Property) location).getPropertyOwner();            
+//            System.out.println(location.getName()+" "+"price: "+price+"\nRent "+rent+"\nOwner "+player);
         } else {
             System.out.println(location.getName());
         }

@@ -1,15 +1,15 @@
 package org.monopoly.game;
 
+import java.util.Random;
+
 public class Dice {
     
-    private int sides;
-    
-    public Dice(){
-        sides = 6;
+    private Dice(){        
     }
     
-    public int roll(){
-        return (int)((Math.random() * sides) + 1);
+    public static int diceThrow(){
+        Random random = new Random();
+        int numberOfEyes = random.nextInt(5);
+        return (numberOfEyes +1);
     }
-
 }
