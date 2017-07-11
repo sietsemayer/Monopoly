@@ -16,8 +16,12 @@ public class Preparation {
     CommunityChest communityChest = new CommunityChest();
     
     public void PrepareGame(){
+        LOG.info("Shuffle communitychest cards.");
         ShuffleCards.shuffle(communityChest.getcommunityChestCarddeckList());
+        LOG.info("Shuffle chance cards.");
         ShuffleCards.shuffle(chance.getChanceCardDeckList());
+        
+        
     }
     
     

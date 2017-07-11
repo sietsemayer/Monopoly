@@ -15,8 +15,7 @@ public class Player {
     private boolean lastRoleWasDouble;
 
     
-    public Player(int playerNumber, String playerObject, List<Location> locations, int money, int doubles,
-            int currentLocation, int jailTime, boolean inJail, boolean lastRoleWasDouble) {       
+    public Player(int playerNumber, String playerObject) {       
         this.playerNumber = playerNumber;
         this.playerObject = playerObject;
         this.locations = new LinkedList<>();
@@ -117,4 +116,6 @@ public class Player {
     public void setLastRoleWasDouble(boolean lastRoleWasDouble) {
         this.lastRoleWasDouble = lastRoleWasDouble;
     }    
+    
+    //TODO SMA: Players can be Iron, Wheelbarrow, Dog, Cannon, Car, Hat, Shoe, Boat, thimbleful 
 }
