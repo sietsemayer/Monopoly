@@ -5,7 +5,8 @@ import java.util.logging.Logger;
 
 public class Player {    
 	private static Logger LOG = Logger.getLogger("Player.class");
- 
+	
+	private String name;
     private int playerNumber;
     private String playerObject;
     private List<Location>locations;   
@@ -17,7 +18,8 @@ public class Player {
     private boolean lastRoleWasDouble;
 
     
-    public Player(int playerNumber, String playerObject) {       
+    public Player(String name, int playerNumber, String playerObject) {       
+        this.name = name;
         this.playerNumber = playerNumber;
         this.playerObject = playerObject;
         this.locations = new LinkedList<>();
@@ -27,6 +29,11 @@ public class Player {
         this.jailTime = 0;
         this.inJail = false;
         this.lastRoleWasDouble = false;
+    }
+
+    
+    public void setName(String name) {
+        this.name = name;
     }
 
 
@@ -140,6 +147,13 @@ public class Player {
     	lastRoleWasDouble = false;
     	doublesRolledThisTurn = 0;
     }
+    
+    public String getName() {
+        if( this.name == null)
+            return "No One";
+        else
+            return this.name;
+    }        
     
     //TODO SMA: Players can be Iron, Wheelbarrow, Dog, Cannon, Car, Hat, Shoe, Boat, thimbleful 
 }

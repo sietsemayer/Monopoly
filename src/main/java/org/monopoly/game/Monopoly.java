@@ -10,7 +10,10 @@ import org.apache.log4j.Logger;
 
 public class Monopoly {
     private static Logger LOG = Logger.getLogger(Monopoly.class);
-    private Queue<Player> playersQueue = new LinkedList<>(); 
+    
+    private Queue<Player> playersQueue = new LinkedList<>();
+    private Player currentPlayer;
+    
     public Monopoly(int numberOfPlayers) {
        Preparation preparation = new Preparation();
        preparation.PrepareGame();    
@@ -22,10 +25,10 @@ public class Monopoly {
 
     private void PlayGame(int numberOfPlayers) {
        
-        playersQueue.add(new Player(1, "Boat"));
-        playersQueue.add(new Player(2, "Car"));
-        playersQueue.add(new Player(3, "Thimbleful"));
-        playersQueue.add(new Player(4, "Boat"));
+        playersQueue.add(new Player("Jan",1, "Boat"));
+        playersQueue.add(new Player("Wim",2, "Car"));
+        playersQueue.add(new Player("Henk",3, "Thimbleful"));
+        playersQueue.add(new Player("Piet",4, "Boat"));
                 	
             Play();
         	
@@ -34,31 +37,39 @@ public class Monopoly {
     }
     
     private synchronized void Play() {
+
+        this.currentPlayer = playersQueue.peek(); 
+        
         if(playersQueue.peek().isInJail()){
-            LOG.info("Player "+playersQueue.peek().getPlayerObject()+ "is in jail");
+            LOG.info("Player "+currentPlayer.getPlayerObject()+ "is in jail");
         }
         playersQueue.peek().roll();
         int steps = playersQueue.peek().roll();
-        LOG.info("Last roll was double "+playersQueue.peek().LastRoleWasDouble());
+        LOG.info("Last roll was double "+currentPlayer.LastRoleWasDouble());
+        
+        
         
         
         move(steps);
-        if(playersQueue.peek().getCurrentLocation())
+       
         
     }
 
-
-
     private void move(int steps) {
-		int currentloc = playersQueue.peek().getCurrentLocation();
-		if(currentloc + steps < 39){
-			playersQueue.peek().setCurrentLocation((currentloc + steps) - 39);
-		} else {
-			playersQueue.peek().setCurrentLocation(currentloc + steps);
-		}
+		int currentlocation = currentPlayer.getCurrentLocation();
+		 if(playersQueue.peek().getCurrentLocation() + steps > 39){
+		     moveOverStart();
+	            currentPlayer.setCurrentLocation((currentlocation + steps) - 39);
+	        } else {
+	            currentPlayer.setCurrentLocation((currentlocation + steps));
+	        }
 		
 		
 	}
+    private void moveOverStart(){
+        LOG.info(currentPlayer.getName() + "receives € 20000");
+        currentPlayer.setMoney(currentPlayer.getMoney() + 20000);
+    }
 
 
 

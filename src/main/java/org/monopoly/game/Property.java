@@ -1,9 +1,8 @@
 package org.monopoly.game;
 
-
 public class Property extends Location {
 
-    private int propertyOwner;
+    private Player propertyOwner;
     private int propertyPrice;
     private int mortgageValue;    
     private int rent;
@@ -17,15 +16,15 @@ public class Property extends Location {
         this.rent = rent;
         this.mortgage = false;
         this.monopoly = false;
-        this.propertyOwner = 0;
+        this.propertyOwner = null;
     }
     
-    public int getPropertyOwner(){
+    public Player getPropertyOwner(){
         return this.propertyOwner;
     }
     
-    public void setPropertyOwner(Player player){
-        this.propertyOwner = player.getPlayerNumber();
+    public void setPropertyOwner(Player propertyOwner) {
+        this.propertyOwner = propertyOwner;
     }
 
     public int getPropertyPrice() {
@@ -67,15 +66,13 @@ public class Property extends Location {
     public void setMonopoly(boolean monopoly) {
         this.monopoly = monopoly;
     }
-    
-    //FIXME SMA : FIX THIS!!
-    
-//    public String getOwnersName(){
-//        if(propertyOwner.equals(null)){
-//            return "none";
-//        } else {
-//            return propertyOwner.getName();
-//        }
-//    }
+
+    public String getOwnersName() {
+        if (propertyOwner.equals(null)) {
+            return "none";
+        } else {
+            return propertyOwner.getName();
+        }
+    }
     
 }
