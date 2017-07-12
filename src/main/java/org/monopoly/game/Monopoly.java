@@ -26,10 +26,10 @@ public class Monopoly {
         playersQueue.add(new Player(2, "Car"));
         playersQueue.add(new Player(3, "Thimbleful"));
         playersQueue.add(new Player(4, "Boat"));
-        for(int i = 0;i<100;i++){
+                	
             Play();
         	
-        }
+        
 
     }
     
@@ -38,18 +38,31 @@ public class Monopoly {
             LOG.info("Player "+playersQueue.peek().getPlayerObject()+ "is in jail");
         }
         playersQueue.peek().roll();
-        int diceThrow = playersQueue.peek().roll();
+        int steps = playersQueue.peek().roll();
         LOG.info("Last roll was double "+playersQueue.peek().LastRoleWasDouble());
-        LOG.info(diceThrow + "Worp" );
         
         
-            
+        move(steps);
+        if(playersQueue.peek().getCurrentLocation())
         
     }
 
 
 
-    public static void main(String[] args) {
+    private void move(int steps) {
+		int currentloc = playersQueue.peek().getCurrentLocation();
+		if(currentloc + steps < 39){
+			playersQueue.peek().setCurrentLocation((currentloc + steps) - 39);
+		} else {
+			playersQueue.peek().setCurrentLocation(currentloc + steps);
+		}
+		
+		
+	}
+
+
+
+	public static void main(String[] args) {
         LOG.info("Starting the game!");
         new Monopoly(4);
     }
