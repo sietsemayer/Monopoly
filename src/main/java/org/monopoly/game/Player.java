@@ -1,9 +1,11 @@
 package org.monopoly.game;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.logging.Logger;
 
 public class Player {    
-      
+	private static Logger LOG = Logger.getLogger("Player.class");
+ 
     private int playerNumber;
     private String playerObject;
     private List<Location>locations;   
@@ -108,7 +110,7 @@ public class Player {
     }
 
 
-    public boolean isLastRoleWasDouble() {
+    public boolean LastRoleWasDouble() {
         return lastRoleWasDouble;
     }
 
@@ -116,6 +118,28 @@ public class Player {
     public void setLastRoleWasDouble(boolean lastRoleWasDouble) {
         this.lastRoleWasDouble = lastRoleWasDouble;
     }    
+    
+    public int roll() {
+    	int roll1 = Dice.diceThrow();
+    	LOG.info("Dice1 "+roll1);
+    	int roll2 = Dice.diceThrow();
+    	LOG.info("Dice2 "+roll2);
+    	
+    	if(roll1 == roll2) {
+    		this.doublesRolledThisTurn++;
+    		lastRoleWasDouble = true;
+    	}
+    	return (roll1 + roll2);
+    }
+    
+    public boolean lastRollWasDoubles(){
+    	return lastRoleWasDouble;
+    }
+    
+    public void resetPlayer(){
+    	lastRoleWasDouble = false;
+    	doublesRolledThisTurn = 0;
+    }
     
     //TODO SMA: Players can be Iron, Wheelbarrow, Dog, Cannon, Car, Hat, Shoe, Boat, thimbleful 
 }

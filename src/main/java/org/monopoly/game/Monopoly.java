@@ -26,14 +26,21 @@ public class Monopoly {
         playersQueue.add(new Player(2, "Car"));
         playersQueue.add(new Player(3, "Thimbleful"));
         playersQueue.add(new Player(4, "Boat"));
-        
-        Play();
+        for(int i = 0;i<100;i++){
+            Play();
+        	
+        }
+
     }
     
-    private void Play() {
+    private synchronized void Play() {
         if(playersQueue.peek().isInJail()){
-            
+            LOG.info("Player "+playersQueue.peek().getPlayerObject()+ "is in jail");
         }
+        playersQueue.peek().roll();
+        int diceThrow = playersQueue.peek().roll();
+        LOG.info("Last roll was double "+playersQueue.peek().LastRoleWasDouble());
+        LOG.info(diceThrow + "Worp" );
         
         
             
