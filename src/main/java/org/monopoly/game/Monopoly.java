@@ -14,39 +14,35 @@ public class Monopoly {
     private Queue<Player> playersQueue = new LinkedList<>();
     private Player currentPlayer;
     
+    /**
+     * @param numberOfPlayers
+     */
     public Monopoly(int numberOfPlayers) {
        Preparation preparation = new Preparation();
-       preparation.PrepareGame();    
-       
-       PlayGame(numberOfPlayers);
+       preparation.PrepareGame(); 
+       createPlayers();
+       Play();
     }
 
- 
-
-    private void PlayGame(int numberOfPlayers) {
+    private void createPlayers() {
        
         playersQueue.add(new Player("Jan",1, "Boat"));
         playersQueue.add(new Player("Wim",2, "Car"));
         playersQueue.add(new Player("Henk",3, "Thimbleful"));
         playersQueue.add(new Player("Piet",4, "Boat"));
-                	
-            Play();
-        	
-        
-
     }
     
     private synchronized void Play() {
 
         this.currentPlayer = playersQueue.peek(); 
+        LOG.info(this.currentPlayer.getName());
         
         if(playersQueue.peek().isInJail()){
             LOG.info("Player "+currentPlayer.getPlayerObject()+ "is in jail");
         }
-        playersQueue.peek().roll();
         int steps = playersQueue.peek().roll();
         LOG.info("Last roll was double "+currentPlayer.LastRoleWasDouble());
-        
+        LOG.info("Last roll was "+ steps);
         
         
         

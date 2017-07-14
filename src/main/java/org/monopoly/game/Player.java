@@ -126,12 +126,12 @@ public class Player {
         this.lastRoleWasDouble = lastRoleWasDouble;
     }    
     
+    /**
+     * @return
+     */
     public int roll() {
-    	int roll1 = Dice.diceThrow();
-    	LOG.info("Dice1 "+roll1);
+    	int roll1 = Dice.diceThrow();    	
     	int roll2 = Dice.diceThrow();
-    	LOG.info("Dice2 "+roll2);
-    	
     	if(roll1 == roll2) {
     		this.doublesRolledThisTurn++;
     		lastRoleWasDouble = true;
