@@ -30,6 +30,19 @@ public class Monopoly {
         playersQueue.add(new Player("Wim",2, "Car"));
         playersQueue.add(new Player("Henk",3, "Thimbleful"));
         playersQueue.add(new Player("Piet",4, "Boat"));
+        
+        
+        getnextPlayer
+        Check if player is in jail (if in jail check if player has a card an want to use it)
+        throw dice
+        move payer
+        check if straat is available ( if street is used calculate price) and pay other player
+        
+        
+        
+        
+        
+        
     }
     
     private synchronized void Play() {
@@ -47,7 +60,7 @@ public class Monopoly {
         
         
         move(steps);
-       
+        c
         
     }
 
