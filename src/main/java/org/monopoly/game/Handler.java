@@ -1,8 +1,9 @@
 package org.monopoly.game;
 
+import org.apache.log4j.Logger;
 
 public class Handler {
-    
+    private static Logger LOG = Logger.getLogger(Handler.class);
     public int locationOnBoard, price, rent;
     private Location location;
     
@@ -17,9 +18,9 @@ public class Handler {
     public void action(){
         if(location instanceof Property){
             Player player = ((Property) location).getPropertyOwner();            
-            System.out.println(location.getName()+" "+"price: "+price+"\nRent "+rent+"\nOwner "+player);
+            LOG.info(location.getName()+" "+"price: "+price+"\nRent "+rent+"\nOwner "+player);
         } else {
-            System.out.println(location.getName());
+            LOG.info(location.getName());
         }
             
          

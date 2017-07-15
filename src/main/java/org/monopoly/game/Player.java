@@ -15,7 +15,9 @@ public class Player {
     private int currentLocation;
     private int jailTime;
     private boolean inJail;
-    private boolean lastRoleWasDouble;
+    private boolean lastRoleWasDouble;    
+    private boolean hasGetOutOfJailFreeCardChance;
+    private boolean hasGetOutOfJailFreeCardCommunityChest;
 
     
     public Player(String name, int playerNumber, String playerObject) {       
@@ -29,6 +31,8 @@ public class Player {
         this.jailTime = 0;
         this.inJail = false;
         this.lastRoleWasDouble = false;
+        this.setGetOutOfJailFreeCardChance(false);
+        this.setGetOutOfJailFreeCardCommunityChest(false);
     }
 
     
@@ -126,6 +130,25 @@ public class Player {
         this.lastRoleWasDouble = lastRoleWasDouble;
     }    
     
+    public boolean hasGetOutOfJailFreeCardChance() {
+        return hasGetOutOfJailFreeCardChance;
+    }
+
+
+    public void setGetOutOfJailFreeCardChance(boolean hasGetOutOfJailFreeCardChance) {
+        this.hasGetOutOfJailFreeCardChance = hasGetOutOfJailFreeCardChance;
+    }
+
+
+    public boolean hasGetOutOfJailFreeCardCommunityChest() {
+        return hasGetOutOfJailFreeCardCommunityChest;
+    }
+
+
+    public void setGetOutOfJailFreeCardCommunityChest(boolean hasGetOutOfJailFreeCardCommunityChest) {
+        this.hasGetOutOfJailFreeCardCommunityChest = hasGetOutOfJailFreeCardCommunityChest;
+    }        
+    
     /**
      * @return
      */
@@ -153,7 +176,10 @@ public class Player {
             return "No One";
         else
             return this.name;
-    }        
+    }
+
+
+   
     
     //TODO SMA: Players can be Iron, Wheelbarrow, Dog, Cannon, Car, Hat, Shoe, Boat, thimbleful 
 }
